@@ -110,12 +110,6 @@ export function detailEmpty() {
     };
 };
 
-export function getPlatforms() {
-    return {
-        type: 'GET_PLATFORMS'
-    };
-};
-
 export function clearFilters() {
     return {
         type: 'CLEAR_FILTERS'

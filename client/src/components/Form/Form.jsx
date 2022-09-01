@@ -144,8 +144,7 @@ export default function Form() {
     let newSet = [...new Set(plat)]
 
     return (
-        // <div className={styles.div}>
-            <div className={styles.background}>
+        <div className={styles.background}>
             <form className={styles.container} onSubmit={(e) => {handleSubmit(e)}}>
                 <h1>Create breed!</h1>
 
@@ -179,7 +178,7 @@ export default function Form() {
                                 name="platforms"
                                 onChange={(e) => {handleSelectForPlatforms(e)}}
                             >
-                            {newSet.map((e) => (
+                            {newSet?.map((e) => (
                                 <option name="platforms" value={e} key={e}>{e}</option>
                             ))} 
                             </select> }
@@ -233,40 +232,38 @@ export default function Form() {
                             onChange={(e) => {handleChange(e)}}
                         />
                     </div>
-
                 </div>
 
                 <div>
                     <button type="submit">Create</button>
-                    <Link to="/home">
-                        <button>Home</button>
-                    </Link>
+                        <Link to="/home">
+                            <button>Home</button>
+                        </Link>
                 </div>
             </form>
 
-        <div className={styles.selected}>
-          <div className={styles.details}>
-            { input.genres.map((e) => (
-              <div className={styles.button} key={e}>
-                <p>{e}</p>
-                <button key={e} onClick={() => {handleDeleteForGenres(e)}}>x</button>
-              </div>
-            ))  }
+            <div className={styles.selected}>
+                <div className={styles.details}>
+                { input.genres.map((e) => (
+                    <div className={styles.button} key={e}>
+                        <p>{e}</p>
+                        <button key={e} onClick={() => {handleDeleteForGenres(e)}}>x</button>
+                    </div>
+                  ))  }
+                </div>
             </div>
-        </div>
 
-        <div className={styles.selected}>
-          <div className={styles.details}>
-            { input.platforms.map((e) => (
-              <div className={styles.button} key={e}>
-                <p>{e}</p>
-                <button key={e} onClick={() => {handleDeleteForPlatforms(e)}}>x</button>
-              </div>
-            ))  }
+            <div className={styles.selected}>
+                <div className={styles.details}>
+                { input.platforms.map((e) => (
+                    <div className={styles.button} key={e}>
+                        <p>{e}</p>
+                        <button key={e} onClick={() => {handleDeleteForPlatforms(e)}}>x</button>
+                    </div>
+                  ))  }
+                </div>
             </div>
-        </div>
 
         </div>
-    // </div>
     );
 };
