@@ -21,7 +21,6 @@ export default function Details() {
         <div className={styles.background}>
 
             <div className={styles.container}>
-            {/* <span></span> */}
             { game.name ? 
                 <div className={styles.card}>
                     { game.image ? <img src={game.image} alt='img not found' />

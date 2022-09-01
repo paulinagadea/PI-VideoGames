@@ -6,10 +6,24 @@
     justify-content: center;
     align-items: center;
     background-size: cover;
-    background-image: linear-gradient(to left top, #a423ce, #ec009f, #ff5a3c, #ff9001);
+    background: #111;
+}
+
+.container {
+    justify-content: center;
+    text-align: center;
+}
+
+.container img {
+    height: 350px;
+    width: 350px;
 }
 
 .title {
-    color: green;
+    margin-top: 15px;
+    color: #ff6600;
+    font-family: Poppins;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 

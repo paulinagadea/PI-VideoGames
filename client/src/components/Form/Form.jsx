@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import { postGame, getGenres, getVideogames } from "../../actions/actions.js";
+import { postGame, getGenres, getVideogames, changePage } from "../../actions/actions.js";
+import styles from "./Form.module.css";
 
 function validate(input) {
     let errors = {};
@@ -134,6 +135,7 @@ export default function Form() {
             platforms: [],
           });
           history.push("/home");
+          dispatch(changePage(0));
         }
       };
 
@@ -142,13 +144,14 @@ export default function Form() {
     let newSet = [...new Set(plat)]
 
     return (
-        <div>
-            <form onSubmit={(e) => {handleSubmit(e)}}>
+        // <div className={styles.div}>
+            <div className={styles.background}>
+            <form className={styles.container} onSubmit={(e) => {handleSubmit(e)}}>
                 <h1>Create breed!</h1>
 
-                <div>      
-                    <div>
-                        <label>Name: </label>
+                <div className={styles.details}>      
+                    <div className={styles.label}>
+                        <label className={styles.text}>Name: </label>
                         <input    
                             type="text"
                             value={input.name}
@@ -158,8 +161,8 @@ export default function Form() {
                         {errors.name && <p>{errors.name}</p>}
                     </div>
 
-                    <div>
-                        <label>Released date: </label>
+                    <div className={styles.label}>
+                        <label className={styles.text}>Released date: </label>
                         <input
                             type="date"
                             value={input.released}
@@ -169,55 +172,10 @@ export default function Form() {
                         {errors.released && <p>{errors.released}</p>}
                     </div>
 
-                    <div>
-                        <label>Image: </label>
-                        <input
-                            type="text"
-                            value={input.image}
-                            name="image"
-                            onChange={(e) => {handleChange(e)}}
-                        />
-                    </div>
-
-                    <div>
-                        <label>Rating: </label>
-                        <input
-                            type="text"
-                            value={input.rating}
-                            name="rating"
-                            onChange={(e) => {handleChange(e)}}
-                        />
-                        {errors.rating && <p>{errors.rating}</p>}
-                    </div>
-
-                    <div>
-                        <label>Description: </label>
-                        <input
-                            type="text"
-                            value={input.description}
-                            name="description"
-                            onChange={(e) => {handleChange(e)}}
-                        />
-                        {errors.description && <p>{errors.description}</p>}
-                    </div>
-
-                    <div>
-                        <label>Genres: </label>
+                    <div className={styles.label}>
+                        <label className={styles.text}>Platforms: </label>
                             { <select
-                                name="genres"
-                                onChange={(e) => {handleSelectForGenres(e)}}
-                            >
-                            {genres?.map((e) => (
-                                <option name="genres" value={e.name} key={e.id}>{e.name}</option>
-                            ))} 
-                            </select> }
-
-                        {errors.genres && (<p>{errors.genres}</p>)}
-                    </div>
-
-                    <div>
-                        <label>Platforms: </label>
-                            { <select
+                                className={styles.option}
                                 name="platforms"
                                 onChange={(e) => {handleSelectForPlatforms(e)}}
                             >
@@ -229,6 +187,53 @@ export default function Form() {
                         {errors.platforms && (<p>{errors.platforms}</p>)}
                     </div>
 
+                    <div className={styles.label}>
+                        <label className={styles.text}>Description: </label>
+                        <input
+                            type="text"
+                            value={input.description}
+                            name="description"
+                            onChange={(e) => {handleChange(e)}}
+                        />
+                        {errors.description && <p>{errors.description}</p>}
+                    </div>
+
+                    <div className={styles.label}>
+                        <label className={styles.text}>Genres: </label>
+                            { <select
+                                className={styles.option}
+                                name="genres"
+                                onChange={(e) => {handleSelectForGenres(e)}}
+                            >
+                            {genres?.map((e) => (
+                                <option name="genres" value={e.name} key={e.id}>{e.name}</option>
+                            ))} 
+                            </select> }
+
+                        {errors.genres && (<p>{errors.genres}</p>)}
+                    </div>
+
+                    <div className={styles.label}>
+                        <label className={styles.text}>Rating: </label>
+                        <input
+                            type="number"
+                            value={input.rating}
+                            name="rating"
+                            onChange={(e) => {handleChange(e)}}
+                        />
+                        {errors.rating && <p>{errors.rating}</p>}
+                    </div>
+
+                    <div className={styles.label}>
+                        <label className={styles.text}>Image: </label>
+                        <input
+                            type="text"
+                            value={input.image}
+                            name="image"
+                            onChange={(e) => {handleChange(e)}}
+                        />
+                    </div>
+
                 </div>
 
                 <div>
@@ -238,27 +243,30 @@ export default function Form() {
                     </Link>
                 </div>
             </form>
-        <div>
 
-        <div>
+        <div className={styles.selected}>
+          <div className={styles.details}>
             { input.genres.map((e) => (
-              <div key={e}>
+              <div className={styles.button} key={e}>
                 <p>{e}</p>
                 <button key={e} onClick={() => {handleDeleteForGenres(e)}}>x</button>
               </div>
             ))  }
+            </div>
         </div>
 
-        <div>
+        <div className={styles.selected}>
+          <div className={styles.details}>
             { input.platforms.map((e) => (
-              <div key={e}>
+              <div className={styles.button} key={e}>
                 <p>{e}</p>
                 <button key={e} onClick={() => {handleDeleteForPlatforms(e)}}>x</button>
               </div>
             ))  }
+            </div>
         </div>
 
         </div>
-    </div>
+    // </div>
     );
 };

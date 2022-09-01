@@ -30,9 +30,7 @@ export default function Home() {
         dispatch(changePage(0));
     };
 
-    // return currentGames.length ? (
-        // <Loader />
-    return (
+    return currentGames.length ? (
         <div className={styles.background}>
             <div className={styles.container}>
                 <div className={styles.bar}>
@@ -79,7 +77,7 @@ export default function Home() {
                 </div>
             </div>
         </div>
-    // ) : (
-    //     <Loader />
-     );
+    ) : (
+        <Loader />
+    );
 };
