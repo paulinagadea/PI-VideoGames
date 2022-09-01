@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #111;
+    color: #fff;
+    border-radius: 15px;
+    width: 350px;
+	height: 430px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: 0.5s;
+}
+
+.container:hover {
+    background: #ff6600;
+    box-shadow: 0 0 10px #ff6600, 0 0 40px #ff6600, 0 0 80px #990099;
+    transform: translateY(-10px);
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+	height: 100%;
+    border-radius: 15px;
+    background: linear-gradient(45deg,#ff6600,#990099);
+}
+
+.container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+	height: 100%;
+    border-radius: 15px;
+    background: linear-gradient(45deg,#ff6600,#990099);
+    filter: blur(25px);
+}
+
+.container span {
+    position: absolute;
+    border-radius: 10px;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    background: rgba(0,0,0,0.6);
+    z-index: 2;
+}
+
+.container .content {
+    position: relative;
+    z-index: 10;
+}
+
+.img {
+    border-radius: 15px;
+    margin-top: 15px;
+    height: 200px;
+    width: 300px;
+}
+
+.name {
+    color: #ff6600;
+    font-size: 1.6em;
+    letter-spacing: 1px;
+    font-family: Poppins;
+} 
+
+.rating {
+    font-size: 1.2em;
+}
+
+.genres {
+    font-size: 1.3em;
+}

@@ -1,0 +1,15 @@
+.background {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-image: linear-gradient(to left top, #a423ce, #ec009f, #ff5a3c, #ff9001);
+}
+
+.title {
+    color: green;
+}
+
