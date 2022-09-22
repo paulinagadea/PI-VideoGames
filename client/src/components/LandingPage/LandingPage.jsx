@@ -7,7 +7,7 @@ export default function LandingPage() {
         <div className={styles.background}>
             <div className={styles.container}>
                 <p className={styles.glitch}>         
-                    <span aria-hidden='true'>THE LAST GAME</span>THE LAST GAME<span aria-hidden='true'>THE LAST GAME</span>       
+                    <span aria-hidden='true'>THE ULTIMATE GAME</span>THE ULTIMATE GAME<span aria-hidden='true'>THE ULTIMATE GAME</span>       
                 </p>
                 <Link to='/home'>
                     <button className={styles.button}><span></span><span></span><span></span><span></span>Home!</button>

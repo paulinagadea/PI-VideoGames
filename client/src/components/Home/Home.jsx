@@ -37,7 +37,7 @@ export default function Home() {
                     <div className={styles.title}>
                         <Link to='/'>
                             <p className={styles.glitch}>         
-                                <span aria-hidden='true'>THE LAST GAME</span>THE LAST GAME<span aria-hidden='true'>THE LAST GAME</span>       
+                                <span aria-hidden='true'>THE ULTIMATE GAME</span>THE ULTIMATE GAME<span aria-hidden='true'>THE ULTIMATE GAME</span>       
                             </p>
                         </Link>
                     </div>
