@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getNames, changePage } from '../../actions/actions.js';
 import styles from './SearchBar.module.css';
+import Loader from '../Loader/Loader.jsx';
 
 export default function SearchBar() {
     const dispatch = useDispatch();
@@ -18,6 +19,7 @@ export default function SearchBar() {
         e.preventDefault();
         dispatch(getNames(name));
         dispatch(changePage(0));
+        <Loader />
         setName('');
     };
 

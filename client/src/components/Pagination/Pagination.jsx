@@ -9,7 +9,6 @@ export default function Pagination(props) {
     const { page } = useSelector((state) => state);
 
     const pagesAmount = Math.ceil(videogames / itemsPerPage) - 1;
-
     const pageNumbers = [];
 
     function handleChangePage(page) {

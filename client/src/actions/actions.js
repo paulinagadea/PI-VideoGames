@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export function getVideogames() {
     return function(dispatch) {
-        return axios.get('http://localhost:3001/videogames')
+        return axios.get('/videogames')
         .then(res => {
             dispatch({
                 type: 'GET_VIDEOGAMES',
@@ -14,7 +14,7 @@ export function getVideogames() {
 
 export function getGenres() {
     return function(dispatch) {
-        return axios.get('http://localhost:3001/genres')
+        return axios.get('/genres')
         .then(res => {
             dispatch({
                 type: 'GET_GENRES',
@@ -26,7 +26,7 @@ export function getGenres() {
 
 export function getNames(payload) {
     return function(dispatch) {
-        return axios.get('http://localhost:3001/videogames?name=' + payload)
+        return axios.get('/videogames?genre=' + payload)
         .then(res => {
             dispatch({
                 type: 'GET_NAMES',
@@ -40,7 +40,7 @@ export function getNames(payload) {
 
 export function getDetails(id) {
     return function (dispatch) {
-        return axios.get('http://localhost:3001/videogame/' + id)
+        return axios.get('/videogame/' + id)
         .then(res => {
             return dispatch({
                 type: 'GET_DETAILS',
@@ -54,7 +54,7 @@ export function getDetails(id) {
 
 export function postGame(payload) {
     return function () {
-      return axios.post("http://localhost:3001/videogame", payload);
+      return axios.post('/videogame', payload);
     };
 };
 

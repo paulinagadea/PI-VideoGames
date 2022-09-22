@@ -73,7 +73,7 @@ export default function Home() {
                 </div>
 
                 <div className={styles.pags}>
-                    <Pagination page={page} videogames={videogames.length} itemsPerPage={itemsPerPage} />
+                    <Pagination videogames={videogames.length} itemsPerPage={itemsPerPage} />
                 </div>
             </div>
         </div>
